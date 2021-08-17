@@ -1,0 +1,23 @@
+﻿第一步先初始化
+git init
+第二步 关联远程仓库
+git remote add origin 仓库地址
+第三步 创建分支并打开
+git switch -c dev
+第四步 拉取指定分支的远程代码
+git pull --rebase origin dev
+第五步
+开始测试，再当前目录创建一个文件
+第六步 
+git add 文件名称
+第七步 
+git commit -m '描述信息'
+第八步，绑定远程分支后提交(第二次提交直接 git push)
+git push --set-upstream origin dev
+
+更新关联方式
+如果想要git关联多个仓库 方式
+git remote add GitHub git@github.com:Victor1998113/system.git
+描述：
+$ git remote add [关联仓库名称比如GitHub or Gitee] git@关联仓库网站比如[github.com]又双引号：用户名/仓库名.git
+
