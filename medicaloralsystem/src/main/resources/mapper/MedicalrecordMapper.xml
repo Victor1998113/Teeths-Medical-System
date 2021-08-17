@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.MedicalrecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Medicalrecord">
+            <id property="medicalRecordid" column="medicalRecordid" jdbcType="INTEGER"/>
+            <result property="patientsid" column="patientsid" jdbcType="INTEGER"/>
+            <result property="clinictime" column="clinictime" jdbcType="TIMESTAMP"/>
+            <result property="count" column="count" jdbcType="INTEGER"/>
+            <result property="doctorid" column="doctorid" jdbcType="INTEGER"/>
+            <result property="opsid" column="opsid" jdbcType="INTEGER"/>
+            <result property="drugid" column="drugid" jdbcType="INTEGER"/>
+            <result property="cost" column="cost" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        medicalRecordid,patientsid,clinictime,
+        count,doctorid,opsid,
+        drugid,cost
+    </sql>
+</mapper>

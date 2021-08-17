@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.OrderdetailsMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Orderdetails">
+            <id property="orderid" column="orderid" jdbcType="VARCHAR"/>
+            <result property="patientsid" column="patientsid" jdbcType="INTEGER"/>
+            <result property="count" column="count" jdbcType="INTEGER"/>
+            <result property="paytime" column="paytime" jdbcType="TIMESTAMP"/>
+            <result property="payment" column="payment" jdbcType="VARCHAR"/>
+            <result property="payamount" column="payamount" jdbcType="DECIMAL"/>
+            <result property="orderstate" column="orderstate" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        orderid,patientsid,count,
+        paytime,payment,payamount,
+        orderstate
+    </sql>
+</mapper>

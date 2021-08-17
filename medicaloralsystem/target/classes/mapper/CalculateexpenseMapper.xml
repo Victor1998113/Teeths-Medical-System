@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.CalculateexpenseMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Calculateexpense">
+            <result property="total" column="total" jdbcType="DECIMAL"/>
+            <result property="monthincome" column="monthincome" jdbcType="DECIMAL"/>
+            <result property="dayincome" column="dayincome" jdbcType="DECIMAL"/>
+            <result property="patientscount" column="patientscount" jdbcType="BIGINT"/>
+            <result property="appointmentcount" column="appointmentcount" jdbcType="BIGINT"/>
+            <result property="yesterdayincome" column="yesterdayincome" jdbcType="DECIMAL"/>
+            <result property="nearlyincome" column="nearlyincome" jdbcType="DECIMAL"/>
+            <result property="lastmonthincome" column="lastmonthincome" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        total,monthincome,dayincome,
+        patientscount,appointmentcount,yesterdayincome,
+        nearlyincome,lastmonthincome
+    </sql>
+</mapper>

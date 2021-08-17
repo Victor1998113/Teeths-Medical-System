@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.AppointmenttimeMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Appointmenttime">
+        <id property="atid" column="atid" jdbcType="INTEGER"/>
+        <result property="datetime" column="datetime" jdbcType="TIMESTAMP"/>
+        <result property="doctorid" column="doctorid" jdbcType="INTEGER"/>
+        <result property="appstate" column="appstate" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        atid
+        ,datetime,doctorid,
+        appstate
+    </sql>
+    <update id="updateState" parameterType="java.lang.Integer">
+        update appointmenttime
+        set appstate = 1
+        where atid = #{atid}
+    </update>
+    <update id="updateStateTwo">
+        update appointmenttime
+        set appstate = 0
+        where atid = #{atid}
+    </update>
+    <select id="onTheDayOfTheDate" resultType="com.oral.bean.Appointmenttime" parameterType="map">
+        select *
+        from appointmenttime
+        where DATE_FORMAT(datetime, '%Y-%m-%d') = DATE_FORMAT(#{clinictime}, '%Y-%m-%d')
+          and appstate = 0
+          and doctorid = #{id}
+    </select>
+    <select id="listdoctor" resultMap="BaseResultMap">
+        select ap.*, d.name
+        from appointmenttime ap
+                 inner join doctor d on ap.doctorid = d.doctorid
+        where 1 = 1
+          and d.name like concat('%', #{name}, '%')
+        order by datetime desc
+    </select>
+</mapper>

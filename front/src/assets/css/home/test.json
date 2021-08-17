@@ -1,0 +1,19 @@
+{
+    "data": {
+    "id": 101,
+    "authName": "商品管理",
+    "path": null,
+    "children": [
+      {
+        "id": 104,
+        "authName": "商品列表",
+        "path": null,
+        "children": []
+      }
+    ]
+  },
+  "meta": {
+    "msg": "获取菜单列表成功",
+    "status": 200
+  }
+}

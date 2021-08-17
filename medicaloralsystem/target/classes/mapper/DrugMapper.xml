@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.DrugMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Drug">
+            <id property="drugid" column="drugid" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="count" column="count" jdbcType="INTEGER"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="price" column="price" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        drugid,name,count,
+        type,price
+    </sql>
+    <update id="updateCount" parameterType="java.lang.Integer">
+        update drug set count = count-1 where drugid =#{id}
+    </update>
+</mapper>

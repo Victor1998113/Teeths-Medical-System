@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.AppointmentMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Appointment">
+            <id property="appointmentid" column="appointmentid" jdbcType="INTEGER"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="CHAR"/>
+            <result property="age" column="age" jdbcType="INTEGER"/>
+            <result property="doctorid" column="doctorid" jdbcType="INTEGER"/>
+            <result property="atid" column="atid" jdbcType="INTEGER"/>
+            <result property="petient" column="petient" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        appointmentid,username,phone,
+        gender,age,doctorid,
+        atid,petient
+    </sql>
+</mapper>

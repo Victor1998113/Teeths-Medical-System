@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.AuthorityMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Authority">
+            <id property="authorityid" column="authorityid" jdbcType="INTEGER"/>
+            <result property="parentid" column="parentid" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="path" column="path" jdbcType="VARCHAR"/>
+            <result property="perms" column="perms" jdbcType="VARCHAR"/>
+            <result property="component" column="component" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="INTEGER"/>
+            <result property="icon" column="icon" jdbcType="VARCHAR"/>
+            <result property="orderNum" column="orderNum" jdbcType="INTEGER"/>
+            <result property="statu" column="statu" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        authorityid,parentid,name,
+        path,perms,component,
+        type,icon,orderNum,
+        statu
+    </sql>
+</mapper>

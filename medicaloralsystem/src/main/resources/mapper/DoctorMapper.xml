@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.DoctorMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Doctor">
+        <id property="doctorid" column="doctorid" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="gender" column="gender" jdbcType="CHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="idcard" column="idcard" jdbcType="VARCHAR"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="lastlogin" column="lastlogin" jdbcType="TIMESTAMP"/>
+        <result property="departmentsid" column="departmentsid" jdbcType="INTEGER"/>
+        <result property="statu" column="statu" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        doctorid
+        ,name,gender,
+        phone,idcard,username,
+        password,lastlogin,departmentsid,
+        statu
+    </sql>
+    <select id="getNavMenuIds" resultType="java.lang.Long">
+        select distinct authorityid
+        from doctorposition dp
+                 left join roleauthority rh
+                           on dp.positionid = rh.positionid
+        where dp.doctorid = #{doctorid}
+    </select>
+    <select id="listByMenuId" resultType="com.oral.bean.Doctor">
+        select distinct d.*
+        from doctorposition dp
+                 left join roleauthority rh
+                           on dp.positionid = rh.positionid
+                 left join doctor d
+                           on dp.doctorid = d.doctorid
+        where rh.authorityid = #{authorityid}
+
+    </select>
+    <select id="selectAllByDoctorid" resultType="com.oral.bean.Doctor">
+        select name
+        from doctor
+        where doctorid = #{doctorid,jdbcType=NUMERIC}
+    </select>
+</mapper>

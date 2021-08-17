@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.DetailedcostMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Detailedcost">
+            <result property="id" column="id" jdbcType="INTEGER"/>
+            <result property="clinictime" column="clinictime" jdbcType="TIMESTAMP"/>
+            <result property="count" column="count" jdbcType="INTEGER"/>
+            <result property="doctorName" column="doctorName" jdbcType="VARCHAR"/>
+            <result property="opsname" column="opsname" jdbcType="VARCHAR"/>
+            <result property="drugName" column="drugName" jdbcType="VARCHAR"/>
+            <result property="pname" column="pname" jdbcType="VARCHAR"/>
+            <result property="cost" column="cost" jdbcType="DECIMAL"/>
+            <result property="patientsid" column="patientsid" jdbcType="INTEGER"/>
+            <result property="state" column="state" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,clinictime,count,
+        doctorName,opsname,drugName,
+        pname,cost,patientsid,
+        state
+    </sql>
+</mapper>

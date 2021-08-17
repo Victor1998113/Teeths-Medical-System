@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.DoctorpositionMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Doctorposition">
+            <id property="dpid" column="dpid" jdbcType="INTEGER"/>
+            <result property="doctorid" column="doctorid" jdbcType="INTEGER"/>
+            <result property="positionid" column="positionid" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        dpid,doctorid,positionid
+    </sql>
+</mapper>

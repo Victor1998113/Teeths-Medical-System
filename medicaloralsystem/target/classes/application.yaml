@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 填写你数据库的url、登录名、密码和数据库名
+    url: jdbc:mysql://localhost:3306/medicaloral?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 199811
+#  security:
+#    user:
+#      name: myuser
+#      password: 123123
+
+server:
+  port: 9000
+
+mybatis:
+  typeAliasesPackage: com.oral.bean
+  mapperLocations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+markerhub:
+  jwt:
+    header: Authorization
+    expire: 604800 #7天，秒单位
+    secret: tt8n3439n439n43ld9yy9343fdfer49h

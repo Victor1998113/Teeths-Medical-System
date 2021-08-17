@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.OperationMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Operation">
+        <id property="operationid" column="operationid" jdbcType="INTEGER"/>
+        <result property="doctorid" column="doctorid" jdbcType="INTEGER"/>
+        <result property="patientsid" column="patientsid" jdbcType="INTEGER"/>
+        <result property="opsid" column="opsid" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        operationid
+        ,doctorid,patientsid,
+        opsid
+    </sql>
+    <select id="selectByDoctorName" resultMap="BaseResultMap">
+        select op.operationid, op.doctorid, do.name as doname, pa.name as paname, o.opsname as opname
+        from operation op
+                 inner join doctor do on op.doctorid = do.doctorid
+                 inner join patients pa on op.patientsid = pa.patientsid
+                 inner join operationtype o on op.opsid = o.opsid
+        where do.name like concat('%', #{name}, '%')
+    </select>
+</mapper>

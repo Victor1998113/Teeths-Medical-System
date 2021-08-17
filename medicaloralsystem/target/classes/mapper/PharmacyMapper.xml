@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oral.mapper.PharmacyMapper">
+
+    <resultMap id="BaseResultMap" type="com.oral.bean.Pharmacy">
+        <id property="phid" column="phid" jdbcType="INTEGER"/>
+        <result property="drugid" column="drugid" jdbcType="INTEGER"/>
+        <result property="patientsid" column="patientsid" jdbcType="INTEGER"/>
+        <result property="doctorid" column="doctorid" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        phid
+        ,drugid,patientsid,
+        doctorid
+    </sql>
+    <select id="selectAllByPatientsName" resultMap="BaseResultMap">
+        select dr.drugid, dr.name as drname, p.name as paname, do.name as doname
+        from pharmacy ph
+                 inner join drug dr on ph.drugid = dr.drugid
+                 inner join patients p on ph.patientsid = p.patientsid
+                 inner join doctor do on ph.doctorid = do.doctorid
+        where p.name like concat('%', #{name}, '%')
+    </select>
+</mapper>
